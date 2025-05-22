@@ -1,11 +1,12 @@
-import { Star, Play } from "lucide-react";
-export const MovieCarouselItem = (movie) => {
+import { Star, Play, Link } from "lucide-react";
+// import Link from "next/link";
+export const MovieCarouselItem = ({ movie }) => {
+  const imgUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${movie.backdrop_path}`;
+
   return (
     <div className="relative">
-      <img
-        className="w-screen min-h-[246px]  md:max-h-[600px]"
-        src={movie.backdrop_path}
-      />
+      {/* <Link href={`detials/${id}`}> */}
+      <img className="w-screen min-h-[246px]  md:max-h-[600px]" src={imgUrl} />
       <div className="flex  flex-col md:absolute gap-[16px] m-[20px] top-[178px] left-[120px] md:text-[white] md:w-[404px]">
         <div className="flex w-[335px] h-[52px] justify-between items-center">
           <div>
@@ -14,7 +15,9 @@ export const MovieCarouselItem = (movie) => {
           </div>
           <div className="flex gap-[4px] p-[8px]">
             <Star className="text-yellow-300 fill-amber-300" />
-            <p className="text-[18px] md:text-[14px] ">{movie.vote_average}</p>
+            <p className="text-[18px] md:text-[14px] ">
+              {movie.vote_average.toFixed(1)}
+            </p>
           </div>
         </div>
 
@@ -27,6 +30,7 @@ export const MovieCarouselItem = (movie) => {
           Watch Trailer
         </button>
       </div>
+      {/* </Link> */}
     </div>
   );
 };

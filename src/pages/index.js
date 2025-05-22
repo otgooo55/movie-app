@@ -27,7 +27,7 @@ const Home = () => {
     getNowPlayingMovies();
   }, []);
   return (
-    <div>
+    <div className="container mx-auto max-w-[1280px]">
       <Header />
       <MovieCarousel nowPlayingMovie={nowPlayingMovie} />
       <Upcoming />

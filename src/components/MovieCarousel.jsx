@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
@@ -6,42 +7,28 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import { Card, CardContent } from "./ui/card";
 import { MovieCarouselItem } from "./MovieCarouselItem";
-
 export const MovieCarousel = ({ nowPlayingMovie }) => {
-  {
-    return (
-      <div>
-        <Carousel
-          className="relative"
-          plugins={[
-            Autoplay({
-              delay: 2000,
-            }),
-          ]}
-        >
-          <CarouselContent>
-            {nowPlayingMovie?.slice(0, 3).map((movie, index) => {
-              const imageUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/original${movie.backdrop_path}`;
-              return (
-                <CarouselItem key={index}>
-                  <div>
-                    <MovieCarouselItem
-                      imageUrl={imageUrl}
-                      title={movie.title}
-                      vote_average={movie.vote_average}
-                      overview={movie.overview}
-                    />
-                  </div>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-    );
-  }
+  return (
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+      className="pb-13"
+    >
+      <CarouselContent>
+        {nowPlayingMovie?.slice(0, 5).map((movie, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <MovieCarouselItem movie={movie} />
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="invisible lg:visible absolute left-10 to-50%" />
+      <CarouselNext className="invisible lg:visible absolute right-10 to-50%" />
+    </Carousel>
+  );
 };
