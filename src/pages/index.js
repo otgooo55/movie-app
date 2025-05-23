@@ -1,7 +1,10 @@
 import { Header } from "../components/Header";
 import { MovieCarousel } from "@/components/MovieCarousel";
+import { TopRated } from "@/components/TopRated";
 import { Upcoming } from "@/components/Upcoming";
 import { useEffect, useState } from "react";
+import { Popular } from "@/components/Popular";
+import { Footer } from "@/components/Footer";
 const Home = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
   const getNowPlayingMovies = async () => {
@@ -31,6 +34,9 @@ const Home = () => {
       <Header />
       <MovieCarousel nowPlayingMovie={nowPlayingMovie} />
       <Upcoming />
+      <Popular />
+      <TopRated />
+      <Footer />
     </div>
   );
 };
