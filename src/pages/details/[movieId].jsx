@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Cover } from "@/components/details/Cover";
 import { Header } from "@/components/Header";
-import { StaffInformation } from "@/components/details/StaffInformation";
+import MovieCredits, { StaffInformation } from "@/components/details/StaffInformation";
 
 export default function Page() {
   const router = useRouter();

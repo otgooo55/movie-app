@@ -1,30 +1,24 @@
-import { getStaffMovies } from "@/lib/get-staff-movies";
+
 import { useState } from "react";
 import { useEffect } from "react";
-export const StaffInformation = () => {
-  const [staffMovies, setStaffMovies] = useState({});
-  // useEffect(() => {
-  //   const fetchMovies = async () => {
-  //     const movie = await getStaffMovies();
-  //     setStaffMovies(movie);
-  //     console.log(staffMovies);
-  //   };
-  //   fetchMovies();
-  // }, []);
+import {getStaffInformation} from "@/lib/get-staff-information"
+export const StaffInformation = ({movieId}) => {
+  const [staffMovies, setStaffMovies] = useState();
   useEffect(() => {
-    if (!id) return;
-    const getStaffMovies = async () => {
-      const data = await getStaffMovies(id);
-      setStaffMovies(data);
-    };
-    get();
-  }, [id]);
+    const fetchInformation = async () =>{
+      const {StaffMovies} = await getStaffInformation(movieId);
+      setStaffMovies(StaffMovies)
+    }
+    if(movieId){
+      fetchInformation();
+    }
+  }, [movieId])
 
   return (
     <div className="flex-col  flex gap-y-[33px]">
       <div className="flex px-[20px] gap-13">
         <p className="text-[16px] font-bold w-[64px]">Director</p>
-        <p className="text-[16px]">{staffMovies?.director}</p>
+        <p className="text-[16px]">{staffMovies?.name}</p>
       </div>
       <div className="flex px-[20px] gap-13">
         <p className="text-[16px] font-bold w-[64px]">Writers</p>
@@ -41,3 +35,4 @@ export const StaffInformation = () => {
     </div>
   );
 };
+

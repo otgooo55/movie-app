@@ -9,6 +9,9 @@ export const getStaffMovies = async (id) => {
       },
     }
   );
-  const movies = await responce.json();
-  return movies?.results;
+ const data = await responce.json();
+
+  const staffMovies = data.crew.find((person) => person.job === "Director");
+
+  return { staffMovies, cast };
 };
