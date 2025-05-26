@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Cover } from "@/components/details/Cover";
 import { Header } from "@/components/Header";
 import { StaffInformation } from "@/components/details/StaffInformation";
+import { MovieTrailer } from "@/components/MovieTrailer";
 
 export default function Page() {
   const router = useRouter();
@@ -25,7 +26,8 @@ export default function Page() {
         <Header />
       </div>
       <Cover movie={movie} />
-      <StaffInformation />
+      <StaffInformation movie={movie.id} />
+      {/* <MovieTrailer movieId={movieId} /> */}
     </div>
   );
 }
