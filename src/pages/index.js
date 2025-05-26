@@ -29,14 +29,17 @@ const Home = () => {
   useEffect(() => {
     getNowPlayingMovies();
   }, []);
-  return (
+  return (<div>
+
     <div className="container mx-auto max-w-[1280px]">
       <Header />
       <MovieCarousel nowPlayingMovie={nowPlayingMovie} />
       <Upcoming />
       <Popular />
       <TopRated />
-      <Footer />
+
+    </div>
+     <Footer />
     </div>
   );
 };

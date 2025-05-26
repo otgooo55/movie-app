@@ -10,7 +10,7 @@ export const getStaffMovies = async () => {
         },
       }
     );
-    const movies = await responce.json();
+    const data = await responce.json();
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { MovieTrailer } from "../MovieTrailer";
 
 export const Cover = ({ movie }) => {
   console.log(movie);
@@ -25,9 +26,10 @@ export const Cover = ({ movie }) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-4">
-        <img src={poster} className="w-[290px] h-[428px]" />
+      <div className="flex gap-4 max-w-[1280px] m-auto">
+        <img src={poster} className="w-[290px] h-[428px] " />
         <img src={imgUrl} className="w-[760px] h-[428px]" />
+        <MovieTrailer/>
       </div>
     </div>
   );

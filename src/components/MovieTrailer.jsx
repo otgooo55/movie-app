@@ -32,7 +32,7 @@ export const MovieTrailer = ({ movieId }) => {
           Watch Trailer
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-fit">
+      <DialogContent className="sm:max-w-fit bg-transparent border-none">
         <YouTube
           videoId={movieTrailer?.key}
           opts={{

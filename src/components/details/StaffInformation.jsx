@@ -3,16 +3,16 @@ import { useEffect } from "react";
 import { getStaffMovies } from "@/lib/get-staff-movies";
 
 export const StaffInformation = ({ id }) => {
-  const [directors, setDirectors] = useState([]);
-  useEffect(() => {
-    if (!id) return;
-    const directorList = data?.crew?.filter(
-      (person) => person.job === "Director"
-    );
-    setDirectors(directorList);
-  }, [id]);
-  getStaffMovies(directors);
-};
+//   const [directors, setDirectors] = useState([]);
+//   useEffect(() => {
+//     if (!id) return;
+//     const directorList = data?.crew?.filter(
+//       (person) => person.job === "Director"
+//     );
+//     setDirectors(directorList);
+//   }, [id]);
+//   getStaffMovies(directors);
+// };
 
 return (
   <div className="flex-col  flex gap-y-[33px]">
@@ -36,3 +36,4 @@ return (
     </div>
   </div>
 );
+}
