@@ -11,8 +11,10 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex gap-1.5">
-          <ChevronDown />
-          <div className="">Genre</div>
+          <Link href="details/genre">
+            <ChevronDown />
+            <div className="">Genre</div>
+          </Link>
           <input placeholder="search" type="text"></input>
         </div>
 

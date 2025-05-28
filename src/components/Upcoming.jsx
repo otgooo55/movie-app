@@ -19,7 +19,7 @@ export const Upcoming = () => {
     <div className="flex flex-col gap-8">
       <div className="flex justify-between">
         <h1 className="text-[24px] font-black">Upcoming</h1>
-        <Link href={`/category/upcoming`}>
+        <Link href={`category/upcoming`}>
           <Button variant="ghost">
             see more
             <MoveRight />

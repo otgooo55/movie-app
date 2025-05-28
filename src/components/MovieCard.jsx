@@ -12,7 +12,7 @@ export const MovieCard = ({ movie }) => {
         <div className="flex gap-[4px] p-[8px] items-center">
           <Star className=" text-yellow-300 fill-amber-300 w-[16px] h-[16px]" />
           <p className="font-medium text-[#09090B]">
-            {movie.vote_average.toFixed(1)}/10
+            {movie?.vote_average.toFixed(1)}/10
           </p>
         </div>
         <p className="font-medium text-[]14px md:text-[18px] text-[#71717A] pl-[8px]">
