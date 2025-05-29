@@ -29,7 +29,7 @@ export const Cover = ({ movie }) => {
       <div className="flex gap-4 max-w-[1280px] m-auto">
         <img src={poster} className="w-[290px] h-[428px] " />
         <img src={imgUrl} className="w-[760px] h-[428px]" />
-        <MovieTrailer/>
+        <MovieTrailer />
       </div>
     </div>
   );

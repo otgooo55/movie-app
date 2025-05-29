@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 
 import { MovieTrailer } from "@/components/MovieTrailer";
 import { Footer } from "@/components/Footer";
+import { Director } from "@/components/details/Director";
 export default function Page() {
   const router = useRouter();
   const movieId = router.query.movieId;
@@ -28,6 +29,7 @@ export default function Page() {
       <Cover movie={movie} />
       {/* <StaffInformation movie={movie.id} /> */}
       {/* <MovieTrailer movieId={movieId} /> */}
+      <Director movie={movie.id} />
       <Footer />
     </div>
   );
