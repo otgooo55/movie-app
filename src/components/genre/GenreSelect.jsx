@@ -1,11 +1,17 @@
 import { useRouter } from "next/router";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 import { useEffect, useState } from "react";
+import { parseAsArrayOf, parseAsInteger, useQueryState } from "nuqs";
 
 export const AllGenres = () => {
   const router = useRouter();
   const [genres, setGenres] = useState([]);
-  const [genreIds, setGenreIds] = useState([]);
+
+  const [genreIds, setGenreIds] = useQueryState(
+    "genreIds",
+    parseAsArrayOf(parseAsInteger).withDefault([])
+  );
+
   const getMovieGenres = async () => {
     try {
       const response = await fetch(
@@ -30,17 +36,19 @@ export const AllGenres = () => {
     getMovieGenres();
   }, []);
 
-  const handleSelectGenre = (id, name) => {
-    setGenreIds([...genreIds, id]);
+  const handleSelectGenre = (id) => {
+    const newGenreIds = setGenreIds((prev) =>
+      prev.includes(id) ? prev.filter((t) => t !== id) : [...prev, id]
+    );
 
-    router.push(`/genres?genreIds=${genreIds}&name=${name}`);
+    router.push(`/genres?genreIds=${newGenreIds}`);
   };
 
   return (
     <div className="flex flex-wrap gap-4">
       {genres?.genres?.map((genre) => (
         <Badge
-          className="w-fit bg-white text-foreground hover:bg-none text-[12px] font-bold"
+          className="w-fit bg-white text-foreground hover:bg-none text-[12px] font-bold dark:bg-black light:bg-white"
           onClick={() => handleSelectGenre(genre.id, genre.name)}
         >
           {genre.name}

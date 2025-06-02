@@ -1,7 +1,10 @@
 import { Film, ChevronDown, Moon, Search, Input } from "lucide-react";
 
 import Link from "next/link";
-import { HeaderGenre } from "./HeaderGenre";
+
+import { ModeToggle } from "./ModeToggle";
+import { Genres } from "./genre/Genres";
+
 export const Header = () => {
   return (
     <div className="max-w-[1280px] mx-auto  ">
@@ -13,7 +16,7 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex gap-3 my-3">
-          <HeaderGenre />
+          <Genres />
           <div className="flex align-bottom ">
             <div className="relative text-muted-foreground w-[369px]">
               {/* <Search
@@ -28,10 +31,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
-
-        <button>
-          <Moon />
-        </button>
+        <ModeToggle />
       </div>
     </div>
   );
