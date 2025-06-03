@@ -18,8 +18,7 @@ export const GenreSelect = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useQueryState(
     "selectedGenres",
-    parseAsJson(z.array(genreSchema).parse),
-    { shallow: false }
+    parseAsJson(z.array(genreSchema).parse)
   );
 
   useEffect(() => {
@@ -35,7 +34,9 @@ export const GenreSelect = () => {
     if (!genres) return;
     if (!selectedGenres) {
       setSelectedGenres([genre]);
-      router.push(`/search?selectedGenres=${selectedGenres}`);
+      router.push({
+        pathname: `/search`,
+      });
       return;
     }
     const existingGenre = selectedGenres?.find((g) => g.id === genre.id);

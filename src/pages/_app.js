@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
           disableTransitionOnChange
         >
           <Header />
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
           <Footer />
         </ThemeProvider>
       </NuqsAdapter>

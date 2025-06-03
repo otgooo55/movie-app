@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { Badge } from "../ui/badge";
 import { useEffect, useState } from "react";
 import { parseAsArrayOf, parseAsInteger, useQueryState } from "nuqs";
+import { Button } from "../ui/button";
 
 export const AllGenres = () => {
   const router = useRouter();
@@ -45,14 +46,14 @@ export const AllGenres = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-col">
       {genres?.genres?.map((genre) => (
-        <Badge
+        <Button
           className="w-fit bg-white text-foreground hover:bg-none text-[12px] font-bold dark:bg-black light:bg-white"
           onClick={() => handleSelectGenre(genre.id, genre.name)}
         >
           {genre.name}
-        </Badge>
+        </Button>
       ))}
     </div>
   );
