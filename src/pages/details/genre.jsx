@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { parseAsJson, useQueryState } from "nuqs";
 import { z } from "zod";
 
-const genreSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-});
+const genreSchema = z
+  .object({
+    id: z.number(),
+    name: z.string(),
+  })
+  .optional();
 
 export const GenreSelect = () => {
   const router = useRouter();
