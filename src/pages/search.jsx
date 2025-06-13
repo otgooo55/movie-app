@@ -23,8 +23,8 @@ const Search = () => {
   const genreId = router.query.genreIds;
 
   const [filterMovie, setFilterMovie] = useState(null);
-  const stringArray = Json.parse(selectedGenres);
-  console.log(stringArray);
+  // const stringArray = Json.parse(selectedGenres);
+  // console.log(stringArray);
   useEffect(() => {
     if (!genreId) return;
     const getFilter = async () => {
@@ -32,10 +32,11 @@ const Search = () => {
       setFilterMovie(data);
     };
     getFilter();
+    const stringArray = Json.parse(selectedGenres);
+    console.log(stringArray);
   }, [genreId]);
   console.log(router.query.selectedGenres);
-  // const stringArray = Json.parse(selectedGenres);
-  // console.log(stringArray);
+
   return (
     <div className="w-full lg:max-w-[1278px] mx-auto flex flex-col gap-y-[32px]">
       <p className="font-semibold text-[30px] pl-20">Search Filter</p>
